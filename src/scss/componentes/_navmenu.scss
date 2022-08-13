@@ -1,0 +1,48 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.navMenu{
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+    span{
+        display: block;
+        width: 28px;
+        height: 2px;
+        border-radius: 9999px;
+        background-color: v.$azulClaro;
+        transition: all .4s ease-in-out;
+    }
+
+    span{
+        &:not(:last-child){
+            margin-bottom: 7px;
+        }
+    }
+}
+
+.navMenu.active{
+    transition-delay: .8s;
+    transform: rotate(45deg);
+
+    span{
+        &:nth-child(2){
+            width: 0;
+        }
+        &:nth-child(1),
+        &:nth-child(3){
+            transition-delay: .4s;
+        }
+        &:nth-child(1){
+            transform: translateY(9px);
+        }
+        &:nth-child(3){
+            transform: translateY(-9px) rotate(90deg);
+        }
+    }
+}
+
+@include m.tablet {
+    .navMenu{
+        display: none;
+    }
+}

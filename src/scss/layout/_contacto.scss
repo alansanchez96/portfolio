@@ -1,0 +1,50 @@
+@use 'base/variables' as v;
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    .campo{
+        width: 95%;
+        max-width: 50rem;
+        label{
+            text-align: left;
+            display: block;
+            color: v.$grisOscuro;
+            margin: 1rem auto;
+            font-size: 1.6rem;
+        }
+        input, textarea{
+            outline: none;
+            padding: 1rem;
+            margin: 0 auto;
+            border-bottom: 1px solid v.$gris;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            background-color: unset;
+            color: v.$grisOscuro;
+            width: 100%;
+            transition: border-bottom .3s ease-in-out;
+            &:focus{
+                border-bottom: 1px lighten(v.$azulOscuro, 10) solid;
+            }
+            &:hover{
+                border-bottom: 1px lighten(v.$azulOscuro, 10) solid;
+            }
+        }
+        textarea{
+            height: 10rem;
+        }
+        input:invalid {
+            animation: shake 300ms;
+        }
+        @keyframes shake {
+            25% { transform: translateX(4px); }
+            50% { transform: translateX(-4px); }
+            75% { transform: translateX(4px); }
+        }
+    }
+}

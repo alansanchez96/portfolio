@@ -1,0 +1,18 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.hero{
+    padding: 1rem;
+    @include m.tablet {
+        padding: 10rem;
+    }
+    h1, p{
+        color: v.$negro;
+    }
+    p{
+        margin: 0;
+    }
+    span{
+        font-weight: 800;
+    }
+}

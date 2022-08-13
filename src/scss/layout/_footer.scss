@@ -1,0 +1,28 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+footer{
+    padding: 5rem;
+    .media-social{
+        .media-social__links{
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            justify-content: space-around;
+            margin: 0 auto;
+            width: 50%;
+            @include m.telefono {
+                width: 23%;   
+            }
+        }
+        i{
+            font-size: 4rem;
+            color: v.$azulOscuro;
+            transition: all .3s;
+            &:hover{
+                transform: scale(1.09);
+                color: lighten(v.$azulOscuro, 25);
+            }
+        }
+    }
+}

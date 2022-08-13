@@ -1,0 +1,26 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.sobre-mi{
+    background-color: v.$azulOscuro;
+    padding: 7rem 0 20rem;
+    h2, h4{
+        color: v.$blanco;
+        margin: 1rem 0;
+    }
+    p{
+        max-width: 80%;
+        margin: 2rem auto;
+        color: v.$gris;
+    }
+    i{
+        margin-top: 1rem;
+        font-size: 4rem;
+        color: v.$blanco;
+        transition: all .3s;
+        &:hover{
+            transform: scale(1.12);
+            color: darken(v.$blanco, 10);
+        }
+    }
+}

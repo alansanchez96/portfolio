@@ -1,6 +1,5 @@
-composer.json/
-composer.lock/
+composer.json
+composer.lock
 node_modules
-src
 vendor
 package-lock.json

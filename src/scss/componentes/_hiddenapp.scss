@@ -1,0 +1,16 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.hidden{
+    visibility: hidden;
+    height: 0;
+    display: none;
+    opacity: 0;
+    transition: all 1s linear;
+}
+
+.visible{
+    visibility: visible;
+    height: auto;
+    opacity: 1;
+}

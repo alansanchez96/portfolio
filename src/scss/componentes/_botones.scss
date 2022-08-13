@@ -1,0 +1,71 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.boton{
+    @include m.boton(transparent, v.$azulOscuro, inline-block);
+}
+
+.enviar {
+    @include m.boton(transparent, v.$azulOscuro, block);
+}
+
+.btn-website{
+    display: block;
+    padding: .5rem 2rem;
+    margin: 0 auto;
+    background-color: transparent;
+    color: v.$blanco;
+    text-align: center;
+    border: 1px v.$blanco solid;
+    border-radius: 25px;
+    transition-property: border color;
+    transition-duration: .3s;
+    &:hover{
+        border: 1px darken(v.$blanco, 25) solid;
+        color: darken(v.$blanco, 25);
+        cursor: pointer;
+    }
+}
+
+.btn-bienvenida{
+    background-color: transparent;
+    padding: 1.5rem 4rem;
+    color: v.$blanco;
+    font-size: 2rem;
+    font-weight: 400;
+    display: inline-block;
+    border: 1px lighten(v.$azulOscuro, 10) solid;
+    border-radius: 25px;
+    transition-property: background-color color;
+    transition-duration: .3s;
+    text-align: center;
+    margin: 3rem auto;
+    width: auto;
+    position: relative;
+    &:hover {
+        background-color: lighten(v.$azulOscuro, 10);
+        color: v.$blanco;
+        cursor: pointer;
+        &::before{
+            background-color: v.$blanco;
+            top: 50px;
+        }
+    }
+
+}
+
+.btn-bienvenida{
+    &::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 63px;
+        background: darken(v.$blanco, 50);
+        height: 50%;
+        width: 100%;
+        transform: perspective(4mm) rotateX(40deg) scale(1, 0.50);
+        filter: blur(8px);
+        transition: 1s ease;
+
+    }
+}

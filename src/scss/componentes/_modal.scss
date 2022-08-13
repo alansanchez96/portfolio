@@ -1,0 +1,174 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.contacto-flotante {
+    position: fixed;
+    background-image: url(/build/img/contacto-flotante.webp);
+    background-size: cover;
+    background-position: center center;
+    bottom: 4rem;
+    right: 4rem;
+    border-radius: 50%;
+    width: 7.5rem;
+    height: 7.5rem;
+    z-index: 20;
+    cursor: pointer;
+    transition: filter .3s;
+
+    &:hover {
+        filter: brightness(85%) saturate(2.5);
+    }
+}
+
+.contacto-flotante::after {
+    position: absolute;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    z-index: 15;
+    content: ' ';
+    background: #51ea0a;
+    border-radius: 50%;
+    right: 5px;
+    bottom: 1px;
+}
+
+.contacto-flotanteJS {
+    position: fixed;
+    background-image: url(/build/img/x-regular-24.png);
+    background-size: cover;
+    background-position: center center;
+    bottom: 4rem;
+    right: 4rem;
+    border-radius: 50%;
+    width: 7.5rem;
+    height: 7.5rem;
+    z-index: 20;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    width: 40rem;
+    background-color: transparent;
+    bottom: 31px;
+    right: 44px;
+}
+
+.window_chat {
+    position: absolute;
+    width: 472%;
+    height: auto;
+    bottom: 98px;
+    right: -4px;
+    background-color: darken(v.$blanco, 5);
+    max-width: 40rem;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    border-radius: 12px;
+    box-shadow: 5px -5px 10px rgba(0, 0, 0, 0.309),
+        -5px 5px 10px rgba(0, 0, 0, 0.226);
+
+    &.active {
+        visibility: visible;
+        opacity: 1;
+        height: auto;
+        transition: all .3s;
+    }
+}
+
+
+.chat {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    .chat__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 0;
+        gap: 2rem;
+        width: 100%;
+        background-color: v.$wsp;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+
+        h4 {
+            font-size: 2.2rem;
+            margin: 0;
+            color: v.$blanco;
+        }
+
+        i {
+            color: v.$blanco;
+            font-size: 3.6rem;
+        }
+    }
+
+    .chat__body {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 2rem;
+        margin: 0;
+        margin-left: 1rem;
+        padding: 4rem 2rem 0;
+
+        img {
+            width: 4rem;
+            height: 4rem;
+            margin: 0;
+        }
+
+        p {
+            margin: 0;
+            text-align: left;
+            font-size: 1.6rem;
+        }
+    }
+
+    .chat__submit {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 2rem auto .5rem;
+        padding: 0 2rem 1rem;
+        width: 100%;
+
+        input {
+            background-color: transparent;
+            padding: 1rem 1.6rem;
+            border-radius: 25px;
+            border: 1px solid darken(v.$gris, 25);
+            width: 100%;
+            transition: all .3s;
+
+            &:focus,
+            &:hover {
+                outline: none;
+                border-color: v.$azulOscuro;
+            }
+        }
+
+        button {
+            border-radius: 50%;
+            border: none;
+            width: 4.5rem;
+            height: 4.5rem;
+            background: linear-gradient(45deg, #f0f0f0, #cacaca);
+            box-shadow: 5px -5px 6px #b1b1b170,
+                -5px 5px 6px #ffffff;
+            cursor: pointer;
+            transition: all .3s;
+
+            &:hover {
+                background: #e0e0e0;
+                box-shadow: 5px -5px 10px #7d7d7d99,
+                    -5px 5px 10px #ffffff;
+            }
+        }
+    }
+}
