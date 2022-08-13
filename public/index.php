@@ -9,6 +9,7 @@ $router = new Router();
 
 
 $router->get('/', [AppController::class, 'index']);
+$router->post('/', [AppController::class, 'index']);
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador

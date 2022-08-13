@@ -2,13 +2,34 @@
 
 namespace Controllers;
 
+use Model\Formulario;
 use MVC\Router;
 
-class AppController {
+class AppController
+{
 
-    public static function index(Router $router){
+    public static function index(Router $router)
+    {
 
-        $router->render('pages/index');
+        $alertas = [];
+        $formulario = new Formulario;
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $formulario = new Formulario($_POST);
+
+            $alertas = $formulario->validarCampos();
+
+            if (empty($alertas)) {
+
+                $formulario->guardar();
+
+            }
+        }
+
+        $alertas = Formulario::getAlertas();
+        $router->render('pages/index', [
+            'alertas' => $alertas
+        ]);
     }
-
 }

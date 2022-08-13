@@ -1,50 +1,133 @@
 @use 'base/variables' as v;
 
-.form{
+.form {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+}
 
-    .campo{
-        width: 95%;
-        max-width: 50rem;
-        label{
-            text-align: left;
-            display: block;
-            color: v.$grisOscuro;
-            margin: 1rem auto;
-            font-size: 1.6rem;
+.campo {
+    width: 95%;
+    max-width: 50rem;
+
+    label {
+        text-align: left;
+        display: block;
+        color: v.$grisOscuro;
+        margin: 1rem auto;
+        font-size: 1.6rem;
+    }
+
+    input,
+    textarea {
+        outline: none;
+        padding: 1rem;
+        margin: 0 auto;
+        border-bottom: 1px solid v.$gris;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        background-color: unset;
+        color: v.$grisOscuro;
+        width: 100%;
+        transition: all .3s ease-in-out;
+
+        &:focus {
+            border-bottom: 1px lighten(v.$azulOscuro, 10) solid;
         }
-        input, textarea{
-            outline: none;
-            padding: 1rem;
-            margin: 0 auto;
-            border-bottom: 1px solid v.$gris;
-            border-top: none;
-            border-right: none;
-            border-left: none;
-            background-color: unset;
-            color: v.$grisOscuro;
-            width: 100%;
-            transition: border-bottom .3s ease-in-out;
-            &:focus{
-                border-bottom: 1px lighten(v.$azulOscuro, 10) solid;
-            }
-            &:hover{
-                border-bottom: 1px lighten(v.$azulOscuro, 10) solid;
-            }
-        }
-        textarea{
-            height: 10rem;
-        }
-        input:invalid {
-            animation: shake 300ms;
-        }
-        @keyframes shake {
-            25% { transform: translateX(4px); }
-            50% { transform: translateX(-4px); }
-            75% { transform: translateX(4px); }
+
+        &:hover {
+            border-bottom: 1px lighten(v.$azulOscuro, 10) solid;
         }
     }
+
+    textarea {
+        height: 10rem;
+    }
+}
+
+.campo_email-error,
+.campo_nombre-error {
+    input {
+        border-bottom: 2px solid v.$rojo;
+        &:focus {
+            border-bottom: 2px lighten(v.$rojo, 10) solid;
+        }
+        &:hover {
+            border-bottom: 2px lighten(v.$rojo, 10) solid;
+        }
+    }
+}
+
+
+.campo_mensaje-error {
+    textarea {
+        border-bottom: 2px solid v.$rojo;
+        &:focus {
+            border-bottom: 2px lighten(v.$rojo, 10) solid;
+        }
+
+        &:hover {
+            border-bottom: 2px lighten(v.$rojo, 10) solid;
+        }
+    }
+}
+
+.campo_error{
+    label{
+        color: v.$rojo;
+    }
+}
+
+.campo_email-correcto,
+.campo_nombre-correcto {
+    input {
+        border-bottom: 2px solid v.$verde;
+        &:focus {
+            border-bottom: 2px lighten(v.$verde, 10) solid;
+        }
+        &:hover {
+            border-bottom: 2px lighten(v.$verde, 10) solid;
+        }
+    }
+}
+.campo_mensaje-correcto {
+    textarea {
+        border-bottom: 2px solid v.$verde;
+        &:focus {
+            border-bottom: 2px lighten(v.$verde, 10) solid;
+        }
+
+        &:hover {
+            border-bottom: 2px lighten(v.$verde, 10) solid;
+        }
+    }
+}
+.campo_correcto{
+    label{
+        color: v.$verde;
+    }
+}
+
+.campo__mensajes{
+    .mensaje{
+        margin: 1rem 0;
+        text-align: center;
+    }
+}
+
+.mensaje__exito{
+    display: none;
+}
+.mensaje__exito-activo{
+    display: block;
+    color: v.$verde;
+}
+.mensaje__error{
+    display: none;
+}
+.mensaje__error-activo{
+    display: block;
+    color: v.$rojo;
 }

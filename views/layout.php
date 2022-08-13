@@ -68,21 +68,23 @@
 
     <footer id="footer" class="contenedor hidden">
         <h3 id="contacto">Ponganse en contacto</h3>
-        <form class="form" method="POST">
-            <div class="campo">
-                <label for="email">Email</label>
-                <input type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[aA-Z-z]{2,}$" placeholder="Escribe tu email" id="email">
-            </div>
-            <div class="campo">
-                <label for="nombre">Nombre</label>
-                <input type="nombre" pattern="[a-zA-Z]*" placeholder="Escribe tu nombre" id="nombre">
-            </div>
-            <div class="campo">
-                <label for="message">Mensaje</label>
-                <textarea id="message" placeholder="Escribe tu mensaje"></textarea>
-            </div>
 
-            <input type="submit" value="Enviar Mensaje" class="enviar">
+        <?php include_once __DIR__ . '/templates/alertas.php'; ?>
+
+        <form class="form" method="POST" id="form">
+            <div class="campo" id="campo_email">
+                <label for="email">Email</label>
+                <input type="email" placeholder="Escribe tu email" name="email" id="email">
+            </div>
+            <div class="campo" id="campo_nombre">
+                <label for="nombre">Nombre</label>
+                <input type="nombre" placeholder="Escribe tu nombre" id="nombre" name="nombre">
+            </div>
+            <div class="campo" id="campo_mensaje">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" placeholder="Escribe tu mensaje (Máximo 200 caracteres)" name="mensaje"></textarea>
+            </div>
+            <button type="submit" class="enviar">Enviar Mensaje</button>
 
         </form>
 
@@ -127,6 +129,7 @@
     </div>
 
     <script src="build/js/app.js"></script>
+    <script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>
 </body>
 
 </html>
