@@ -19,7 +19,7 @@ class Router
 
     public function comprobarRutas()
     {
-        
+
         // Proteger Rutas...
         session_start();
 
@@ -38,11 +38,11 @@ class Router
         }
 
 
-        if ( $fn ) {
+        if ($fn) {
             // Call user fn va a llamar una función cuando no sabemos cual sera
             call_user_func($fn, $this); // This es para pasar argumentos
         } else {
-            echo "Página No Encontrada o Ruta no válida";
+            header('location: /404');
         }
     }
 
@@ -60,5 +60,9 @@ class Router
         include_once __DIR__ . "/views/$view.php";
         $contenido = ob_get_clean(); // Limpia el Buffer
         include_once __DIR__ . '/views/layout.php';
+    }
+    public function render404()
+    {
+        include_once __DIR__ . '/views/pages/404.php';
     }
 }

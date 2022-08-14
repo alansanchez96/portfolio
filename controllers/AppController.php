@@ -35,4 +35,9 @@ class AppController
             'alertas' => $alertas
         ]);
     }
+
+    public static function notfound(Router $router){
+
+        $router->render404();
+    }
 }
