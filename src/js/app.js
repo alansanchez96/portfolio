@@ -1,3 +1,14 @@
+const expresiones = {
+    email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+    nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+    mensaje: /^[a-zA-Z0-9\.\!\@\_\s\?\¿\¡\'\$\(\)\"]{4,250}$/ // Letras, numeros, guion y guion_bajo
+}
+
+const campos = {
+    email: false,
+    nombre: false,
+    mensaje: false
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     iniciarApp();
@@ -55,17 +66,7 @@ function navMenu() {
     });
 }
 
-const expresiones = {
-    email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-    mensaje: /^[a-zA-Z0-9\.\!\@\_\s\?\¿\¡\'\$\(\)\"]{4,250}$/ // Letras, numeros, guion y guion_bajo
-}
 
-const campos = {
-    email: false,
-    nombre: false,
-    mensaje: false
-}
 
 
 function validaciones() {
@@ -120,11 +121,11 @@ function validaciones() {
 
     btnSubmit.onclick = e => {
         e.preventDefault();
-        
+
         if (campos.email && campos.nombre && campos.mensaje) {
 
             submit();
-    
+
         }
         else {
             Swal.fire({
@@ -136,7 +137,7 @@ function validaciones() {
     }
 }
 
-async function submit(){
+async function submit() {
 
     const url = 'http://localhost:3000/api/mensajes';
 
@@ -155,15 +156,15 @@ async function submit(){
     })
 
     const resultado = await respuesta.json();
-    
-    if(resultado.resultado){
+
+    if (resultado.resultado) {
         Swal.fire({
             icon: 'success',
             title: 'Mensaje Enviado',
             text: 'Recibiras una respuesta por email',
             timer: 2000
         })
-    } else{
+    } else {
         Swal.fire({
             icon: 'error',
             title: 'Error',

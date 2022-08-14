@@ -16,7 +16,7 @@
 
     </section>
 
-    <section class="proyectos contenedor" id="proyectos">
+    <section class="proyectos contenedor"  id="proyectos">
 
         <h2>Proyectos</h2>
         <p>Aqui verás las páginas webs y aplicaciones que he diseñado en remoto y/o conjunto</p>
