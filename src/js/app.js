@@ -71,6 +71,7 @@ const campos = {
 function validaciones() {
 
     const formulario = document.getElementById('form');
+    const btnSubmit = document.getElementById('submit');
     const inputs = document.querySelectorAll('#form .campo input');
     const textarea = document.querySelector('#mensaje');
 
@@ -117,21 +118,13 @@ function validaciones() {
     textarea.addEventListener('keyup', validarForm);
     textarea.addEventListener('blur', validarForm);
 
-
-    formulario.addEventListener('submit', e => {
-
+    btnSubmit.onclick = e => {
         e.preventDefault();
-
+        
         if (campos.email && campos.nombre && campos.mensaje) {
-            Swal.fire({
-                icon: 'success',
-                title: 'Mensaje Enviado',
-                text: 'Recibiras una respuesta por email'
-            }).then(() => {
-                setTimeout(() => {
-                    window.location.reload();
-                }, 1000);
-            })
+
+            submit();
+    
         }
         else {
             Swal.fire({
@@ -140,8 +133,43 @@ function validaciones() {
                 text: 'Tu mensaje no pudo ser enviado. Porfavor revisa bien los campos'
             })
         }
+    }
+}
 
-    });
+async function submit(){
+
+    const url = 'http://localhost:3000/api/mensajes';
+
+    const email = document.querySelector('#email');
+    const nombre = document.querySelector('#nombre');
+    const mensaje = document.querySelector('#mensaje');
+
+    const datos = new FormData();
+    datos.append('email', email.value);
+    datos.append('nombre', nombre.value);
+    datos.append('mensaje', mensaje.value);
+
+    const respuesta = await fetch(url, {
+        method: 'POST',
+        body: datos
+    })
+
+    const resultado = await respuesta.json();
+    
+    if(resultado.resultado){
+        Swal.fire({
+            icon: 'success',
+            title: 'Mensaje Enviado',
+            text: 'Recibiras una respuesta por email',
+            timer: 2000
+        })
+    } else{
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Hubo un error en el servidor interno. Porfavor contacta mediante el boton de WhatsApp.'
+        })
+    }
 
 }
 
@@ -194,7 +222,7 @@ function scrollNav() {
 }
 function scrollNavBtn() {
     const btn = document.querySelectorAll('.hero a');
-    btn.forEach( btn => (
+    btn.forEach(btn => (
         btn.addEventListener('click', function (e) {
             e.preventDefault();
 

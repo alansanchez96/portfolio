@@ -10,24 +10,27 @@ class AppController
 
     public static function index(Router $router)
     {
+        $formulario = new Formulario($_POST);
 
         $alertas = [];
-        $formulario = new Formulario;
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-            $formulario = new Formulario($_POST);
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
             $alertas = $formulario->validarCampos();
-
+    
             if (empty($alertas)) {
-
-                $formulario->guardar();
-
+                $resultado = $formulario->guardar();
+    
+                $respuesta = [
+                    'resultado' => $resultado
+                ];
+    
+                echo json_encode($respuesta);
             }
         }
 
         $alertas = Formulario::getAlertas();
+
         $router->render('pages/index', [
             'alertas' => $alertas
         ]);

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/build/css/app.css">
 
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <body id="body">
@@ -84,7 +85,7 @@
                 <label for="mensaje">Mensaje</label>
                 <textarea id="mensaje" placeholder="Escribe tu mensaje (Máximo 200 caracteres)" name="mensaje"></textarea>
             </div>
-            <button type="submit" class="enviar">Enviar Mensaje</button>
+            <input type="submit" value="Enviar Mensaje" id="submit" class="enviar">
 
         </form>
 
@@ -128,7 +129,7 @@
         </div>
     </div>
 
-    <script src="build/js/app.js"></script>
+    <script src="/build/js/app.js"></script>
     <script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>
 </body>
 

@@ -116,18 +116,3 @@
         text-align: center;
     }
 }
-
-.mensaje__exito{
-    display: none;
-}
-.mensaje__exito-activo{
-    display: block;
-    color: v.$verde;
-}
-.mensaje__error{
-    display: none;
-}
-.mensaje__error-activo{
-    display: block;
-    color: v.$rojo;
-}
