@@ -154,8 +154,9 @@ async function submit() {
         method: 'POST',
         body: datos
     })
-
+    
     const resultado = await respuesta.json();
+    
 
     if (resultado.resultado) {
         Swal.fire({

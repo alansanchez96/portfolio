@@ -9,7 +9,7 @@ $router = new Router();
 
 
 $router->get('/', [AppController::class, 'index']);
-$router->post('/api/mensajes', [AppController::class, 'index']);
+$router->post('/api/mensajes', [AppController::class, 'guardar']);
 
 $router->get('/404', [AppController::class, 'notfound']);
 
