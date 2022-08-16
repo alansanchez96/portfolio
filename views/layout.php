@@ -115,7 +115,7 @@
     <div class="contacto-flotante hidden" id="contacto-flotante">
 
     </div>
-    <div class="modal">
+    <div class="modal" id="modal">
         <div class="window_chat">
             <div class="chat">
                 <div class="chat__header">

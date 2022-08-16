@@ -32,6 +32,7 @@ body{
         transform: translateX(-50%) translateY(-50%);
         margin: 0;
         padding: 0;
+        z-index: 100;
         h1,h2{
             color: v.$blanco;
             font-size: 4rem;

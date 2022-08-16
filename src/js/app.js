@@ -179,10 +179,12 @@ function openChat() {
 
     const boton = document.querySelector('#contacto-flotante');
     const ventanaChat = document.querySelector('.window_chat');
+    const modal = document.querySelector('#modal');
 
     boton.addEventListener('click', () => {
 
         ventanaChat.classList.toggle('active');
+        modal.classList.toggle('active');
 
         if (boton.classList.contains('contacto-flotante')) {
             boton.classList.remove('contacto-flotante');

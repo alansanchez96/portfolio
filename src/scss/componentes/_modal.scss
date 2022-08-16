@@ -10,8 +10,12 @@
     bottom: 4rem;
     right: 4rem;
     border-radius: 50%;
-    width: 7.5rem;
-    height: 7.5rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    @include m.telefono {
+        width: 7.5rem;
+        height: 7.5rem;
+    }
     z-index: 20;
     cursor: pointer;
     transition: filter .3s;
@@ -23,15 +27,21 @@
 
 .contacto-flotante::after {
     position: absolute;
-    width: 1.2rem;
-    height: 1.2rem;
+    width: .7rem;
+    height: .7rem;
     border-radius: 50%;
     z-index: 15;
     content: ' ';
     background: #51ea0a;
     border-radius: 50%;
-    right: 5px;
-    bottom: 1px;
+    right: 6px;
+    bottom: 3px;
+    @include m.telefono {
+        width: 1.2rem;
+        height: 1.2rem;
+        right: 5px;
+        bottom: 1px;
+    }
 }
 
 .contacto-flotanteJS {
@@ -50,18 +60,31 @@
 
 .modal {
     position: fixed;
-    width: 40rem;
+    width: 44rem;
+    height: 42rem;
+    @include m.telefono {
+        width: 40rem;
+        height: auto;
+    }
     background-color: transparent;
     bottom: 31px;
     right: 44px;
+    pointer-events: none;
+    &.active{
+        pointer-events: fill;
+    }
 }
 
 .window_chat {
     position: absolute;
-    width: 472%;
-    height: auto;
+    width: 68%;
     bottom: 98px;
-    right: -4px;
+    right: -37px;
+    @include m.telefono {
+        width: 472%;
+        height: auto;
+        right: -4px;
+    }
     background-color: darken(v.$blanco, 5);
     max-width: 40rem;
     visibility: hidden;
@@ -70,11 +93,15 @@
     border-radius: 12px;
     box-shadow: 5px -5px 10px rgba(0, 0, 0, 0.309),
         -5px 5px 10px rgba(0, 0, 0, 0.226);
-
+    pointer-events: none;
     &.active {
+        pointer-events: fill;
         visibility: visible;
         opacity: 1;
-        height: auto;
+        height: 25rem;
+        @include m.telefono {
+            height: auto;
+        }
         transition: all .3s;
     }
 }
@@ -111,6 +138,10 @@
     .chat__body {
         display: flex;
         align-items: center;
+        flex-direction: column;
+        @include m.telefono {
+            flex-direction: row;
+        }
         justify-content: flex-start;
         gap: 2rem;
         margin: 0;
